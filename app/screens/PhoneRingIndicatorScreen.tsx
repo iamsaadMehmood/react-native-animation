@@ -6,13 +6,15 @@ import Layout from '../components/Layout';
 import {goBack, navigate} from '../services/navigation.service';
 import {Colors} from '../utils/color';
 import Feather from 'react-native-vector-icons/Feather';
+import {MotiView} from 'moti';
+import {Easing} from 'react-native-reanimated';
 const _size = 100;
-const CallOutgoingScreen = () => {
+const PhoneRingIndicatorScreen = () => {
   return (
     <Layout
       header={
         <AppBar
-          title={'Call Outgoing'}
+          title={'Phone Ring Indicator'}
           isBack={true}
           onBack={() => goBack()}
           isForward={true}
@@ -21,6 +23,23 @@ const CallOutgoingScreen = () => {
       }>
       <View style={styles.mainContainer}>
         <View style={[styles.center, styles.dot]}>
+          {[...Array(5).keys()].map(index => {
+            return (
+              <MotiView
+                from={{opacity: 0.7, scale: 1}}
+                animate={{opacity: 0, scale: 4}}
+                transition={{
+                  type: 'timing',
+                  duration: 2000,
+                  easing: Easing.out(Easing.ease),
+                  loop: true,
+                  repeatReverse: false,
+                  delay: index * 200,
+                }}
+                key={index}
+                style={[StyleSheet.absoluteFillObject, styles.dot]}></MotiView>
+            );
+          })}
           <Feather
             name="phone-outgoing"
             size={32}
@@ -48,4 +67,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default CallOutgoingScreen;
+export default PhoneRingIndicatorScreen;

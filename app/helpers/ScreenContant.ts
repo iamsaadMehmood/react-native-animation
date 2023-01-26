@@ -1,3 +1,3 @@
 export const Screens = {
-  CallOutgoing: 'CallOutgoing',
+  PhoneRing: 'PhoneRingIndicator',
 };
