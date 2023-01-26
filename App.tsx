@@ -5,17 +5,22 @@
  * @format
  */
 
+import {NavigationContainer} from '@react-navigation/native';
+import {NativeBaseProvider} from 'native-base';
 import React from 'react';
-import {SafeAreaView} from 'react-native';
 
-import Feather from 'react-native-vector-icons/Feather';
+import MainNavigation from './app/navigation/MainNavigation';
+import {navigationRef} from './app/services/navigation.service';
 
-function App(): JSX.Element {
+const App = () => {
   return (
-    <SafeAreaView>
-      <Feather name="edit-2" size={24} color={'#000000'} />
-    </SafeAreaView>
+    <NativeBaseProvider>
+      <NavigationContainer ref={navigationRef}>
+        {/* <StatusBar backgroundColor={Colors.primary} /> */}
+        <MainNavigation />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
-}
+};
 
 export default App;
