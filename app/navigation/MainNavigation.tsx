@@ -1,7 +1,6 @@
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
 import {Screens} from '../helpers/ScreenContant';
-import CallReceivingScreen from '../screens/PhoneRingIndicatorScreen';
 import PhoneRingIndicatorScreen from '../screens/PhoneRingIndicatorScreen';
 
 const Stack = createNativeStackNavigator();
