@@ -1,3 +1,3 @@
 export const Screens = {
-  CallReceiving: 'CallReceiving',
+  CallOutgoing: 'CallOutgoing',
 };
