@@ -1,3 +1,4 @@
 export const Screens = {
-  PhoneRing: 'PhoneRingIndicator',
+  PhoneRing: 'PhoneRingIndicatorScreen',
+  loadingAnimation: 'LoadingAnimationScreen',
 };

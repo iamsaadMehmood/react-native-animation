@@ -4,26 +4,31 @@ import {StyleSheet} from 'react-native';
 import {heightToDp, responsiveFontSize, widthToDp} from '../utils/responsive';
 import {Colors} from '../utils/color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {goBack} from '../services/navigation.service';
 interface IProps {
   title: string;
   isBack: boolean;
-  onBack: Function;
+
   isForward: boolean;
   onForward: Function;
 }
 const AppBar = (props: IProps) => {
   return (
     <HStack style={styles.appBar}>
-      {props.isBack && (
-        <Pressable>
+      {props.isBack ? (
+        <Pressable onPress={() => goBack()}>
           <Ionicons name="arrow-back" size={30} color={Colors.title} />
         </Pressable>
+      ) : (
+        <View />
       )}
       <Text style={styles.title}>{props.title}</Text>
-      {props.isForward && (
-        <Pressable>
+      {props.isForward ? (
+        <Pressable onPress={() => props.onForward()}>
           <Ionicons name="arrow-forward" size={30} color={Colors.title} />
         </Pressable>
+      ) : (
+        <View />
       )}
     </HStack>
   );

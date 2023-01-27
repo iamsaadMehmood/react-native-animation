@@ -8,6 +8,7 @@ import {Colors} from '../utils/color';
 import Feather from 'react-native-vector-icons/Feather';
 import {MotiView} from 'moti';
 import {Easing} from 'react-native-reanimated';
+import {Screens} from '../helpers/ScreenContant';
 const _size = 100;
 const PhoneRingIndicatorScreen = () => {
   return (
@@ -15,10 +16,9 @@ const PhoneRingIndicatorScreen = () => {
       header={
         <AppBar
           title={'Phone Ring Indicator'}
-          isBack={true}
-          onBack={() => goBack()}
+          isBack={false}
           isForward={true}
-          onForward={() => navigate('')}
+          onForward={() => navigate(Screens.loadingAnimation)}
         />
       }>
       <View style={styles.mainContainer}>
